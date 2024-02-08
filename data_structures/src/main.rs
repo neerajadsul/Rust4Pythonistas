@@ -3,6 +3,7 @@ use std::collections::HashSet;
 fn main() {
     println!("Unpacking Tuple");
     unpacking();
+    unpacking_arbitrary();
 }
 
 /*python
@@ -19,3 +20,11 @@ fn unpacking() {
     println!("{}, {}, {:?}, {:?}", n, w, t, s);
 }
 
+
+fn unpacking_arbitrary() {
+    // Currently only works with arrays and slices
+    let record = [1, 2, 3, 4, 5, 6, 7];
+    match record {
+        [x, y @ ..] => println!("{:?} {:?}", x, y)
+    };
+}
